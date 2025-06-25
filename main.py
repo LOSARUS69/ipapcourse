@@ -42,7 +42,7 @@ hour = 13 # 0 - 213
 # если время между 12 и 17 дня, то добрый день
 # если время между 18 и 22 вечера, то добрый вечер
 # иначе - доброй ночи
-"""
+
 hour = input('Сколько ейчас времени?  ')
 hour = int(hour)
 if hour > 23:
@@ -58,6 +58,58 @@ elif hour >= 17 and hour < 23:
     print ('Добрый вечер!')
 else:
     print ('Доброй ночи!')
+
+
+a = 3
+b = 5
+
+print ('До:')
+print ('a = ', a, 'b = ', b)
+
+a, b = b, a # swap
+
+print ('После:')
+print ('a = ', a, 'b = ', b)
+
+# Iterable object
+# len() - сколько элементов в объекте
+
+a = 123456
+
+length = len (str(a))
+print (length)
+
+
+word = input('Введите слово: ')
+
+lenth = len (str(word))
+
+if lenth > 3:
+    print ('Ваше слово ','"'+word+'"', 'больше 4 символов')  #через запятую с пробелом, через "плюс" без пробела
+else:
+    print ('Ваше слово ',word, 'меньше 4 символов')
+
+"""
+
+word1 = 'пришел'
+word2 = 'увидел'
+word3 = 'победил'
+word4 = '27\xb0C' #ASCII 16-ричный код символа
+
+# Help on built-in function print in module builtins:
+# print(*args, sep=' ', end='\n', file=None, flush=False)
+
+# Формат вывода
+# \  -  начало "escape sequence"
+# \n -  перевод строки
+# \t - табуляция
+# \xFF -  #ASCII 16-ричный код символа
+# \u - вывод символа по 4-знакоместам символам unicode
+
+print ("Концерт группы \"Кино\"") #экранирование символа ["]
+print ('Путь к файлу C:\\Program Files\\Users') #экранирование символа [\]
+
+print (word1, word2, word3, sep=', ', end=' -> ')
 
 
 
