@@ -90,6 +90,7 @@ else:
     print ('Ваше слово ',word, 'меньше 4 символов')
 
 """
+from tkinter.font import names
 
 word1 = 'пришел'
 word2 = 'увидел'
@@ -112,4 +113,23 @@ print ('Путь к файлу C:\\Program Files\\Users') #экранирова�
 print (word1, word2, word3, sep=', ', end=' -> ')
 
 
+# Формат вывода 2
+name = 'Игорь'
+email = 'aaa@bbb.ru'
+age = 32
+weight =90.366666
 
+
+# 1 способ (плейсхолдеры)
+print ('Имя: %s, E-mail: %s, Возраст: %d' % (name, email, age))
+
+# %s -symbol
+# %d -digit
+# %f -float
+
+
+# 2 способ
+print ('Имя: {}, E-mail: {}, Возраст: {}' .format (name, email, age))
+
+# 3 способ
+print(f'Имя; {name}',E-mail: {email}, Возраст: {E-mail}, вес: {weight.3f}')
