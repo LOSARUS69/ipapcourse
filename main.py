@@ -1,10 +1,9 @@
-"""
-
 # This is a sample Python script.
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
+"""
 
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
@@ -89,7 +88,7 @@ if lenth > 3:
 else:
     print ('Ваше слово ',word, 'меньше 4 символов')
 
-"""
+
 from tkinter.font import names
 
 word1 = 'пришел'
@@ -112,12 +111,13 @@ print ('Путь к файлу C:\\Program Files\\Users') #экранирова�
 
 print (word1, word2, word3, sep=', ', end=' -> ')
 
+"""
 
 # Формат вывода 2
-name = 'Игорь'
-email = 'aaa@bbb.ru'
-age = 32
-weight =90.366666
+name: str = 'Игорь'
+email: str = 'aaa@bbb.ru'
+age: int = 32
+weight: float = 90.366666
 
 
 # 1 способ (плейсхолдеры)
@@ -128,8 +128,20 @@ print ('Имя: %s, E-mail: %s, Возраст: %d' % (name, email, age))
 # %f -float
 
 
-# 2 способ
-print ('Имя: {}, E-mail: {}, Возраст: {}' .format (name, email, age))
+# Формат вывода 2
+name = 'Игорь'
+email = 'aaa@bbb.ru'
+age = 32
+weight = 92.633366254
 
-# 3 способ
-print(f'Имя; {name}',E-mail: {email}, Возраст: {E-mail}, вес: {weight.3f}')
+# 1 способ (плейсхолдеры)
+# %s - string
+# %d - digit (целое число)
+# %f - float
+print('Имя: %s, E-mail: %s, Возраст: %d' % (name, email, age))
+
+# 2 способ
+print('Имя: {}, E-mail: {}, Возраст: {}'.format(name, email, age))
+
+# 3 способ (самый популярный с версии 3.6)
+print(f'Имя: {name}, E-mail: {email}, Возраст: {age}, Вес: {weight:.3f}')
