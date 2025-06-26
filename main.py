@@ -1,5 +1,5 @@
-"""
 
+"""
 # This is a sample Python script.
 
 # Press Shift+F10 to execute it or replace it with your code.
@@ -90,6 +90,7 @@ else:
     print ('Ваше слово ',word, 'меньше 4 символов')
 
 """
+
 from tkinter.font import names
 
 word1 = 'пришел'
@@ -110,8 +111,10 @@ word4 = '27\xb0C' #ASCII 16-ричный код символа
 print ("Концерт группы \"Кино\"") #экранирование символа ["]
 print ('Путь к файлу C:\\Program Files\\Users') #экранирование символа [\]
 
-print (word1, word2, word3, sep=', ', end=' -> ')
+print (word1, word2, word3, sep=', ')
+       #end=' -> ')
 
+"""
 
 # Формат вывода 2
 name = 'Игорь'
@@ -132,10 +135,10 @@ print ('Имя: %s, E-mail: %s, Возраст: %d' % (name, email, age))
 print ('Имя: {}, E-mail: {}, Возраст: {}' .format (name, email, age))
 
 
-"""
+
 # 3 способ
-print(f'Имя; {name}',E-mail: {email}, Возраст: {age}, вес: {weight.3f}')
-print(f'Имя: {name}', E-mail: {email}, Возраст: {age}, Вес: {weight.3f}')
+print(f'Имя; {name} ,E-mail: {email}, Возраст: {age}, вес: {weight:.3f}')
+#print(f'Имя: {name}, E-mail: {email}, Возраст: {age}, Вес: {weight.3f}')
 
 # 1 способ (плейсхолдеры)
 print ('Имя: %s, E-mail: %s, Возраст: %d' % (name, email, age))
@@ -170,12 +173,14 @@ print(f'Имя: {name}, E-mail: {email}, Возраст: {age}, Вес: {weight:
 # ах + bx +c = 0
 # Определить коэффициенты a, b,c
 
-a = int(input('введите a:')),
-b = int(input('введите b')),
-с = int(input('введите c'))
+a = float(input('введите a:  ')),
+b = float(input('введите b:  ')),
+с = float(input('введите c:  '))
+
 
 if a != 0:
     # Дискриминант
+
     d = b ** 2 - 4 * a * c
     # Вычисление корней
     if d < 0:
@@ -190,4 +195,52 @@ if a != 0:
 else:
     print('По условию a не равно нулю!')
 
+
+
+# Циклы
+# while
+# for
+counter = 0 # обнуляем счетчик
+
+# цикл изх пяти итераций
+
+while counter < 5:
+    print (f'Итерация номер: {counter +1}')
+    counter +=1 #инкремент в краткой записи
+    print(f'Итго в коунтер уже {counter}')
+
+print ('обратный отчет')
+
+
+counter = 5 # выставляем счетчик
+
+while 0 < counter <= 5:
+    print (f'Итерация номер: {counter -1}')
+    counter -=1 #инкремент в краткой записи
+    print(f'Итго в коунтер уже {counter}')
+
+
+
+# Циклы:
+
+# word =''
+# := [моржовый оператор] присваивает в тип в контексте
+
+while len(word := input('Введите слово не короче трех символов: ')) <= 3:
+    print(f'Слово: "{word}" слишком короткое.')
+print (f'Вы ввели слово: "{word}"')
+
+# Цикл до ввода пустой строки
+# без "моржа" -  :=
+
+word =input('Введите слово: ')
+while word != '':
+    print(f'Слово: "{word}"')
+    word = input('Введите слово: ')
+print ('Пустая строка введена')
+
 """
+
+while (word := input('Введите слово: ')) !='':
+    print(f'Вы ввели слово: "{word}"')
+print ('Вы не ввели слово')
