@@ -315,7 +315,7 @@ if 'ток' in word:
 for i in range(2, 13, 2):
     print(i)
 
-"""
+
 
 #интерпретатор range (start, stop, end)
 
@@ -326,8 +326,100 @@ for i in range (1,101):
         print(i)
 
 
+# min, max, average, sum
+N = 5
+total = 0
+min_val = float ('inf') # + бесконечность
+max_val = float ('-inf') # - бесконечность
+prod = 1
+
+for _ in range(10):
+    num = int(input('Введите число:  '))
+    if num < min_val:
+        min_val = num
+    if num >max_val:
+        max_val = num
+    total +=num
+    prod *= num
+    average = total / N
+
+print(f'Сумма: {total}')
+print(f'Ср. арифметическое: {average}')
+print(f'Произведение: {prod}')
+print(f'Минимум: {min_val}')
+print(f'Максимум: {max_val}')
+120
+#factorial
+
+N=3
+
+fact = 1
+for i in range(1, N+1):
+    fact *= i
+print (fact)
 
 
+# Вложенные циклы
+
+for i in range (1, 10):
+    for j in range (1, 10):
+        print (f'{i}*{j} = {i*10}', end='\t')
+    print()
+
+
+
+# подбираем кандидата по росту
+
+height = int(input('Введите рост: '))
+
+while (150 >= height <= 180):
+    print(f'Рост кандидата {height} не подходит')
+    height = int  (input('Введите рост'))
+print ('Кандидат выбран')
+
+
+
+# min, max, average, sum
+N = 5
+total = 0
+min_val = float ('inf') # + бесконечность
+max_val = float ('-inf') # - бесконечность
+prod = 1
+
+for _ in range(10):
+    num = int(input('Введите число:  '))
+    if num < min_val:
+        min_val = num
+    if num >max_val:
+        max_val = num
+    total +=num
+    prod *= num
+    average = total / N
+
+print(f'Сумма: {total}')
+print(f'Ср. арифметическое: {average}')
+print(f'Произведение: {prod}')
+print(f'Минимум: {min_val}')
+print(f'Максимум: {max_val}')
+
+"""
+
+#  Подбор кндидатов по росту от 150 до 180, сигналом остановки является ввод - 1
+
+total_people = 0
+success_people = 0
+min_val = float('inf')
+max_val = float('-inf')
+
+while (num :=input('Введите рост: ')) !=-1:
+    if 150 <= int(num) <= 180:
+        success_people +=1
+        if (num) < min_val:
+            min_val = num
+        if (num) > max_val:
+            max_val = num
+
+total_people +=1
 
 
 
