@@ -90,7 +90,8 @@ else:
     print ('Ваше слово ',word, 'меньше 4 символов')
 
 """
-
+from collections import defaultdict
+from re import match
 from tkinter.font import names
 
 word1 = 'пришел'
@@ -239,8 +240,98 @@ while word != '':
     word = input('Введите слово: ')
 print ('Пустая строка введена')
 
-"""
+
 
 while (word := input('Введите слово: ')) !='':
     print(f'Вы ввели слово: "{word}"')
 print ('Вы не ввели слово')
+
+
+
+# num = 3 # число, которое нужно угадать
+num = 3
+flag = True
+var = ''
+
+while flag:
+    var = int(input('Ваше значение: '))
+    if var == num:
+        print('Ура, угадал!')
+        flag = not flag
+    elif var > num:
+        print ('Число больше загадонного!')
+    else:
+        print ('Число меньше загадонного')
+print ('Приходи еще!')
+
+
+
+
+# подбираем кандидата по росту
+
+height = int(input('Введите рост: '))
+
+while (150 >= height <= 180):
+    print(f'Рост кандидата {height} не подходит')
+    height = int  (input('Введите рост'))
+print ('Кандидат выбран')
+
+
+
+# match - case (3.10 >)
+
+print ('Возможные ходы: \n\tL - влево\n\tR - вправо\n\tF - прямо, \n\tQ -выход')
+
+while True:
+    ch = input ('Ваш выбор:')
+    match ch:
+        case 'L' | 'l' | 'Д' |'д':
+            print ('Свернули налево')
+        case 'R' | 'r' | 'К' |'к':
+            print ('Свернули направо')
+        case 'F' | 'f' | 'А' |'а':
+            print ('Пошли прямо')
+        case 'Q' | 'q' | 'Й' |'й':
+            print ('До свидания!')
+            break
+
+
+# ключевое слово in
+
+word = 'поток'
+
+if 'ток' in word:
+    print ('есть!')
+
+# цикл for (для итерируемых объектов)
+# for <переменная> in intertable
+# команды
+
+# word ='поток'
+
+# for ch in word:
+#    print(ch)
+
+for i in range(2, 13, 2):
+    print(i)
+
+"""
+
+#интерпретатор range (start, stop, end)
+
+for i in range (1,101):
+    if i% 10 ==5:
+        if i==15:
+            continue
+        print(i)
+
+
+
+
+
+
+
+
+
+
+
