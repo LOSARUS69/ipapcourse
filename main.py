@@ -131,5 +131,41 @@ print ('Имя: %s, E-mail: %s, Возраст: %d' % (name, email, age))
 # 2 способ
 print ('Имя: {}, E-mail: {}, Возраст: {}' .format (name, email, age))
 
+
+"""
 # 3 способ
-print(f'Имя; {name}',E-mail: {email}, Возраст: {E-mail}, вес: {weight.3f}')
+print(f'Имя; {name}',E-mail: {email}, Возраст: {age}, вес: {weight.3f}')
+print(f'Имя: {name}', E-mail: {email}, Возраст: {age}, Вес: {weight.3f}')
+
+# 1 способ (плейсхолдеры)
+print ('Имя: %s, E-mail: %s, Возраст: %d' % (name, email, age))
+
+# %s -symbol
+# %d -digit
+# %f -float
+
+
+# Формат вывода 2
+name = 'Игорь'
+email = 'aaa@bbb.ru'
+age = 32
+weight = 92.633366254
+
+# 1 способ (плейсхолдеры)
+# %s - string
+# %d - digit (целое число)
+# %f - float
+print('Имя: %s, E-mail: %s, Возраст: %d' % (name, email, age))
+
+# 2 способ
+print('Имя: {}, E-mail: {}, Возраст: {}'.format(name, email, age))
+
+# 3 способ (самый популярный с версии 3.6)
+print(f'Имя: {name}, E-mail: {email}, Возраст: {age}, Вес: {weight:.3f}')
+
+"""
+
+#  # решить квадратное уравнение
+
+ах + bx +c = 0
+Определить коэффициенты a, b,c
