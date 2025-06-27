@@ -559,9 +559,6 @@ print(s[-5])
 print(f'Длина слова: {len(s)}')
 print(s[-1])
 
-"""
-
-
 # Задача: посчитать гласные в строке
 
 s = 'Язык python'
@@ -590,3 +587,74 @@ for i in range(len(s)):
 
 print (res)
 
+# две удобные функции
+# ord (символ) - возврвращает код символа в unicode
+# chr (код) - возвращает символ Unicode по коду
+
+# таблица символов '°, ○'
+
+u = '\u2603'
+
+print(u)
+
+print(chr(9731))
+
+print(chr(10000))
+
+print(chr(128514))
+print(chr(9760))
+print(chr(128077))
+print(chr(128586))
+#ord(☠)
+#ord(👍)
+#ord(🙊)
+
+
+s = set()
+word = input ('Введите фразу для шифрования: ')
+
+for ch in word:
+    s.add(ord(ch))
+
+print(s)
+
+#Расшифровываем
+
+###
+
+print(dir(s))
+
+# 'add', 'clear', 'copy', 'difference', 'difference_update', 'discard', 'intersection', 'intersection_update', 'isdisjoint',
+# 'issubset', 'issuperset', 'pop','remove', 'symmetric_difference', 'symmetric_difference_update', 'union', 'update']
+
+phrase = input('Введите фразу: ')
+
+print(phrase.lower())
+print(phrase.upper())
+print(phrase.capitalize())
+print(phrase.title())
+
+print('Ура! ' *3)
+print('Телевизор'.count('е'))
+print('Pytyhon'.index('h'))  
+
+"""
+
+word = input ('Введите фразу для модификации: ')
+
+
+
+
+for i in range (len(word)):
+    print(word[i -1] * (i), end='')
+
+
+print('\t')
+
+for ch in word:
+    i = word.index(ch) + 1
+    print (ch * i, end='')
+
+print('\t')
+
+print(word.strip('р'))
