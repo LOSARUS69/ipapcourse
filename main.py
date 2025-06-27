@@ -402,7 +402,7 @@ print(f'Произведение: {prod}')
 print(f'Минимум: {min_val}')
 print(f'Максимум: {max_val}')
 
-"""
+
 
 #  Подбор кндидатов по росту от 150 до 180, сигналом остановки является ввод - 1
 
@@ -418,12 +418,77 @@ while (num :=input('Введите рост: ')) !=-1:
             min_val = num
         if (num) > max_val:
             max_val = num
-
 total_people +=1
 
 
 
 
+#  Коллекции  (set, list, dict, tuple)
+#  Множества
+
+s = set() #пустое множество
+
+s = {3, 5, 7}
+print(type(s)) #класс
+
+print(s) # неупорядоченное множество (произвольный порядок вывода, исключаются повторения)
+
+for item in s:
+    print(item)
+
+print (f'Число элементов в: S = {len(s)}')
 
 
 
+if '3' in s:
+    print('Присутствует число 3')
+else:
+    print('не присутствует')
+
+
+
+s = set() #пустое множество
+
+s = {'3', '5', '7'}
+print(type(s)) #класс
+
+print(s) # неупорядоченное множество (произвольный порядок вывода, исключаются повторения)
+
+
+
+# удаление из множества
+
+s.add ('3')
+print(s)
+s.remove('5')
+print(s)
+s.discard ('7')
+print(s)
+temp = s.pop
+print(temp)
+#s.clear
+
+print (dir(s))
+
+# игра в "города"
+s = set()
+
+city = input('Назовите город')
+
+while (city :=input('Назовите город: ')) !="":
+    if city in s:
+        print('Такой город уже был')
+    else:
+        s.add(city)
+print(f'Итого было названо: {len(s)} городов:')
+for item in s:
+    print('\t', item)
+
+"""
+
+# Сдаем карты
+
+cards = {3, 7, 'туз', 'король', 'дама','валет'}
+
+while cards: # пока в колоде есть карты
+    print(cards.pop())
