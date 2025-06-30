@@ -973,7 +973,7 @@ for st in students:
     print('Студент: ', student)
     print('Средний балл: ', average)
     
-"""
+
 
 # help(sorted)
 # Help on built-in function sorted in module builtins:
@@ -1046,5 +1046,38 @@ for item in enumerate (fio):
 
 for i, v in enumerate (fio): #распаковка функции enumerate
     print ((f'{i+1}. {v}.'))
+
+
+"""
+
+#Методы строки - split() и join()
+# только со строками!
+
+text = 'один два три четыре'
+
+lst = text.split()
+
+print(lst)
+
+ip = '192.168.1.31'
+lst = ip.split('.')
+print(lst)
+
+text2 = ' - и так же: '.join(lst)
+print(text2)
+
+# убрать все пробелы
+text = '   P   y        t h    o n     '
+res = ''.join(text.split())
+print(res)
+
+
+
+# Домашнее задание
+
+stop_list = []
+
+# убррать из исходного текста стоп - слова
+# отсортировать и пронумеровать, вывести в колонку разрешенные слова
 
 
