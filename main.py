@@ -638,7 +638,7 @@ print('Ура! ' *3)
 print('Телевизор'.count('е'))
 print('Pytyhon'.index('h'))  
 
-"""
+
 
 word = input ('Введите фразу для модификации: ')
 
@@ -658,3 +658,37 @@ for ch in word:
 print('\t')
 
 print(word.strip('р'))
+
+"""
+
+# 30/06/2025
+
+
+# Строки (immutable, iterable)
+# Шифр Цезаря
+
+# создаем алфавит
+alphabet = 'абвгдеёжхзийклмнопрстуфчцчшщъыьюя'
+## alphabet_up += alphabet.upper()
+
+# Получачем входеные данные
+message = input ('Введите строку: ').strip()#.lower() # цепочка вызова методов
+key =int(input('Введите ключ: '))
+# инициализируем пустую строку для результата
+encrypted = ''
+
+# перебираем каждый символ в сообщении
+for letter in message:
+    # проверяем является ли символ буквой из алфавита
+    if letter in alphabet:
+        # находим место буквы в алфавите
+        t = alphabet.index(letter)
+        # Вычисляем новую позицию с учетом сдвига
+        new_key = (t + key) % len(alphabet)
+        # добавляем зашифрованный символш
+        encrypted += alphabet[new_key]
+    else:
+        # если символ не буква, оставляем без изменений
+        encrypted += letter
+
+print('Зашифрованное сообщение: ', encrypted)
