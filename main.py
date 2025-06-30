@@ -92,6 +92,7 @@ else:
 """
 from collections import defaultdict
 from re import match
+from selectors import SelectSelector
 from tkinter.font import names
 
 word1 = 'пришел'
@@ -659,7 +660,7 @@ print('\t')
 
 print(word.strip('р'))
 
-"""
+
 
 # 30/06/2025
 
@@ -692,3 +693,250 @@ for letter in message:
         encrypted += letter
 
 print('Зашифрованное сообщение: ', encrypted)
+
+print(dir(message))
+
+# 'capitalize', 'casefold', 'center', 'count', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'format_map', 'index', 'isalnum', 'isalpha',
+# 'isascii', 'isdecimal', 'isdigit', 'isidentifier', 'islower', 'isnumeric', 'isprintable', 'isspace', 'istitle', 'isupper', 'join', 'ljust',
+# 'lower', 'lstrip', 'maketrans', 'partition', 'removeprefix', 'removesuffix', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit',
+# 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+
+s = 'смотреть'
+
+if s.lower().startswith('смо'):
+    print('Да')
+
+
+if s.endswith('еть'):
+    print('Да')
+
+# 1 метод find ("подстрока")
+# 2 метод find ("подстрока",  стартовая позиция)
+# 3 метод find ("подстрока", от [позиция] до [позиция])
+
+ss = 'Смотреть, вертеть, видеть'
+
+index = ss.find('ь') # ищем сначала строки
+print(index)
+index = ss.find('ь', __start = 10)  # ищем с позиции 10
+print(index)
+
+
+
+s = 'синхрофазотрон'
+
+# сколько букв "о" и их позиция
+
+if ch in s:
+    count = s.count(ch)
+    print (f'Буква {ch} встречается в слове "{s}" {count} раз')
+    print ('Её позиция/позиции:', end = '  ')
+    start = 0
+    for i in range(count):
+        pos = s.find(ch, start)
+        
+        
+
+else:
+    print(f'Буквы {ch} нет в слове "{s}"')
+
+# метод replace ('что' на 'что') - полная замена
+
+
+s = 'тиливизор'
+
+print (s.replace('и', 'е',2))
+
+
+# split и join - важные методы
+
+#slice  Срез (у строки и других коллекций, кроме set)
+#[начало:окончание:шаг]
+
+s = 'добрый день'
+
+print (s[:6]) # print (s[0:6:1]) от начала и до заданного индекса (не включая)
+print (s[7:]) # print (s[7:11:1]) от указанного индекса и до конца
+print (s[3:8]) # от и до
+print (s[:-6]) # c начала и до 6 позиции от конца
+print (s[::-1]) # в обратную сторону
+
+s = input('Введите строку: ') #потоп
+
+if s.lower() == s[::-1].lower():
+    print(f'Строка "{s}" - палиндром!')
+else:
+    print(f'Строка "{s}" - не палиндром!')
+
+a = 'Python'
+
+print(a[:522])
+
+
+s = 'Дорог Рим город или дорог Миргород' # + U *
+# Миргород нам дорог ....
+
+print(f'{s[26:50]} нам {s[20:26]}... {s[20:26]}...')
+
+temp =s.lower()
+city = temp[:5][::-1]
+res = city + '' + temp[6:][::-1] +  city
+
+print(res.title())
+
+
+
+
+# Списки (list)
+
+s = {'3','4','5'}
+
+lst1 = list(s)
+
+print(lst1)
+
+lst2 = list(range(1,11))
+
+print(lst2)
+
+#lst = [] # пустой список
+# lst = list() # можно так
+
+lst = list ('Python')
+print(lst)
+
+
+lst = lst*3
+print(type(lst))
+print(lst)
+
+lst = ['s']*10
+print(lst)
+
+lst =[1, 2 ,3]
+print(lst[:2])
+
+# Python 3.12.6 (tags/v3.12.6:a4a2d2b, Sep  6 2024, 20:11:23) [MSC v.1940 64 bit (AMD64)] on win32
+# dir([])
+# 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+
+
+
+s1 = [1, 2, 3]
+s2 = [4, 5, 6]
+print(s1+s2)
+
+s1[1] = 22
+s2[0] = 44
+print(s1+s2)
+
+lst = list(range(10))
+
+print(lst)
+
+slice = lst[:: 2] #slice = lst[:len(lst): 2]
+print(slice)
+for item in lst:
+    print(item, '-', item ** 2)
+
+for item in range(0, len(lst), 2):
+    print(list[item], '-', lst[item] ** 2)
+
+lst = [1, 7, 3, 5, 6, 4, 2]
+lst.sort
+# lst.reverse()
+
+print(lst)
+
+
+a = ['a', 'b', 'c']
+b = a
+b.append('d')  # b += ['d']
+
+print(id(a))
+print(id(b))
+print(a)
+print(b)
+
+# потому, что b ссылка на a, но
+
+a = ['a', 'b', 'c']
+b = a.copy()
+b.append('d')  # b += ['d']
+
+print(id(a))
+print(id(b))
+print(a)
+print(b)
+
+
+
+
+lst = []
+
+while (item := input('Введите название ингридиента:  ')) !='':
+    lst.append(item)
+
+print(f'У нас есть {len(lst)} ингридиентов: ')
+lst.sort()
+for i in range(len(lst)):
+     print(f'\t{i +1}. {lst[i]}')
+
+
+
+
+# имитация стека
+
+N = 5 #глубина стека
+
+lst = []
+for i in range(N):
+    print(f' Кладем книгу {i + 1} в стопку.')
+    lst.append( i + 1)
+
+print('---')
+
+while lst:
+    item = lst.pop()
+    print(f'Берем книгу {item} из стопки.')
+
+
+
+#Списки
+#Создание абревиатур
+
+lst =[]
+
+while (word:= input('Введите слово: ').strip()) !='':  #.capitalize(): или upper ниже
+    lst.append(word[0].upper())
+
+print(lst)
+
+print('Получилась аббревиатура', end =': ')
+print (*lst[:10], sep='') # только первые 10 букв
+
+"""
+
+
+# Корртеж (tuple, immutable)
+
+BLACK = (0, 0, 0)
+empty = () # tuple()
+one =(1,) #добавить единицу в кортеж, запятая после символа обязательна
+temper = 36, 6 #кортеж
+s = 'Python'
+t = tuple(s) + ('.',)
+print(t)
+
+# dir(())
+#['count', 'index']
+
+cards = [(7, 'червей'), ('туз', 'пик')]
+print((1, 2) < (1, 3))
+
+a = 3
+b = 4
+a, b = b, a
+
+
+
