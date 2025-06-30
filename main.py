@@ -915,7 +915,7 @@ print(lst)
 print('Получилась аббревиатура', end =': ')
 print (*lst[:10], sep='') # только первые 10 букв
 
-"""
+
 
 
 # Корртеж (tuple, immutable)
@@ -955,5 +955,96 @@ print(channels)
 
 a, b = input(), input()
 print(a, b)
+
+
+
+
+# Студент и средний балл
+
+N = 3
+students = []
+
+for i in range(N):
+    student, average = input('ФИО: '), float(input('Ср. балл: '))
+    students.append((student, average))
+
+for st in students:
+    student, average = st #  распаковка
+    print('Студент: ', student)
+    print('Средний балл: ', average)
+    
+"""
+
+# help(sorted)
+# Help on built-in function sorted in module builtins:
+# sorted(iterable, /, *, key=None, reverse=False)
+#    Return a new list containing all items from the iterable in ascending order.
+#    A custom key function can be supplied to customize the sort order, and the
+#    reverse flag can be set to request the result in descending order.
+
+s = {'Крутов', 'Селезнев', 'Митрофанов',}
+r = True
+
+# 1- способ
+lst = list(s)
+lst.sort()
+
+print(*lst, sep=', ')
+
+
+# 2-й способ
+lst = sorted(s, reverse=r)
+print(*lst, sep=', ')
+
+# help(enumerate)
+# Help on class enumerate in module builtins:
+# class enumerate(object)
+#  |  enumerate(iterable, start=0)
+#  |
+#  |  Return an enumerate object.
+#  |
+#  |    iterable
+#  |      an object supporting iteration
+#  |
+#  |  The enumerate object yields pairs containing a count (from start, which
+#  |  defaults to zero) and a value yielded by the iterable argument.
+#  |
+#  |  enumerate is useful for obtaining an indexed list:
+#  |      (0, seq[0]), (1, seq[1]), (2, seq[2]), ...
+#  |
+#  |  Methods defined here:
+#  |
+#  |  __getattribute__(self, name, /)
+#  |      Return getattr(self, name).
+#  |
+#  |  __iter__(self, /)
+#  |      Implement iter(self).
+#  |
+#  |  __next__(self, /)
+#  |      Implement next(self).
+#  |
+#  |  __reduce__(...)
+#  |      Return state information for pickling.
+#  |
+#  |  ----------------------------------------------------------------------
+#  |  Class methods defined here:
+#  |
+#  |  __class_getitem__(...)
+#  |      See PEP 585
+#  |
+#  |  ----------------------------------------------------------------------
+#  |  Static methods defined here:
+#  |
+#  |  __new__(*args, **kwargs)
+#  |      Create and return a new object.  See help(type) for accurate signature.
+
+fio = {'Крутов', 'Селезнев', 'Митрофанов',}
+
+
+for item in enumerate (fio):
+    print (item)
+
+for i, v in enumerate (fio): #распаковка функции enumerate
+    print ((f'{i+1}. {v}.'))
 
 
