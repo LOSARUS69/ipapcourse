@@ -939,4 +939,21 @@ b = 4
 a, b = b, a
 
 
+channels = ['red', 'green', 'blue']
+
+r, g, b =channels #распаковка
+
+print (r, g, b)
+
+r, *g = channels # частичная распаковка
+
+print (r, g)
+
+r, *channels = channels
+
+print(channels)
+
+a, b = input(), input()
+print(a, b)
+
 
