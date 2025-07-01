@@ -1329,9 +1329,27 @@ def print_list(array=None):
     for item in array:
         print(item)
 
+def square(num):
+    return num ** 2
 
+def even_odd(num):
+    if num % 2 ==0:
+        return 'Четное'
+    return 'Нечетное'  #else в этом случае избыточно
+
+t = square(5)
+print(t)
 
 # increment()
 greet('Дмитрий')
 print(count)
 print_list()
+
+# Домашнее задание
+
+def num_to_word(num):
+    if str(num) > 3:
+        return
+    e = num % 10
+    le = ['один', 'два']
+    ld = ['десять' 'двадцать']
