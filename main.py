@@ -91,6 +91,7 @@ else:
 
 """
 from collections import defaultdict
+from itertools import count
 from re import match
 from selectors import SelectSelector
 from tkinter.font import names
@@ -1048,7 +1049,7 @@ for i, v in enumerate (fio): #распаковка функции enumerate
     print ((f'{i+1}. {v}.'))
 
 
-"""
+
 
 #Методы строки - split() и join()
 # только со строками!
@@ -1079,5 +1080,224 @@ stop_list = []
 
 # убррать из исходного текста стоп - слова
 # отсортировать и пронумеровать, вывести в колонку разрешенные слова
+
+stop_words = ['ну', 'типо', 'короче', ]
+temp = set()
+res = []
+message = input('Введите сообщение: ')
+lst = message.split() #все слова
+for item in lst:
+    if item not in stop_words:
+        temp.add(item)
+res + sorted (temp)
+for a, b in enumerate(res, 1):
+    print(f'{a}. {b}')
+
+
+
+# Фраза: ну?, я типо, вообще: короче, не понимаю этот язык!
+commas = (',', '!', '.', '?', '-', ':')
+stop_words = {'ну', 'типо', 'короче', 'не'}
+message = input('Введите сообщение: ')
+for z in commas:
+    message = message.replace(z, '')
+lst = message.split()  # все слова
+res = sorted(set(lst) - stop_words)
+for a, b in enumerate(res, 1):
+    print(f'{a}. {b}')
+
+
+
+#Списочные выражения (list comprehension)
+
+squares = []
+for i in range(10):
+    squares.append(i**2)
+
+print(*squares,sep=', ')
+
+# короткий вариант
+
+squares = [i ** 2 for i in range(10)]  #всё в одну строку, 1. - ЧТО попадет в список, 2. - ПО КАКОЙ ЗАКОНОМЕРНОСТИ
+
+print(*squares,sep=', ')
+
+
+squares = [i ** 2 for i in range(10) if i % 2 == 0]  #всё в одну строку, 1. - ЧТО попадет в список, 2. - ПО КАКОЙ ЗАКОНОМЕРНОСТИ, 3. отбор условий (только четные)
+
+print(*squares,sep=', ')
+
+# произведение i и j
+
+print([i * j for i in range(3) for j in range(3)])
+
+
+n = '500 600 700 800 900 1000'
+approved =[500, 800]
+a = ([int(i)  for i in n.split() if int(i) in approved])
+# действия со списком а
+print(a)
+
+text = 'Списочные выражения (list comprehensions) в Python действительно могут повысить эффективность кода при создании новых списков, особенно по сравнению с традиционными циклами. Они обеспечивают более компактный и, часто, более быстрый способ генерации списков'
+
+res = (a for a in text.split() if (text.index(a) +1) % 3 ==0) # в квадратных скобках - list comprehension, в круглых - tuple!
+print(res)
+
+res = [a for a in text.split() [2::3]]
+print(res)
+
+# Вложенные списки
+
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9], # в последней строке "висячая запятая" считается хорошим тоном в программировании
+]
+print(matrix)
+
+for row in range(3):
+    for col in range(3):
+        print(matrix[row][col])
+
+for row in range(len(matrix)):              # обход 2-мерного списка произвольного размера (матрицы)
+    for col in range(len(matrix[row])):
+        print(matrix[row][col])
+
+matrix = [[1] * 3 for _ in range(3)]        # _ перед in, необъявленная переменная (нигде более не используется)
+print(matrix)
+
+count = 1
+for row in range(len(matrix)):
+    for col in range(len(matrix[row])):
+        matrix[row][col] = count
+        count += 1
+print(matrix)
+
+start = 1
+N = 4
+
+for i in range(N):
+    table = []
+    for j in range(start, start +N):
+        table.append(j)
+    matrix.append(table)
+    start += N
+
+print(matrix)
+
+
+matrix = [[i+j for j in range(N)] for i in range(1, 10, 3)]
+
+print(matrix)
+
+
+
+# словари
+# нет индекса, но есть ключ
+
+# пустой словарь
+# 1. d = {}
+# 2. d = dict()
+
+d = {                           #можно в одну строку, но неудобно когда много значений
+    'table': ['таблица', 'стол'],
+    'well': ['хорошо','колодец','скважина'],
+    'chair': 'кресло',
+    'apple': 'яблоко',
+    1: 'один',                  # к ключу нет требований типизации, может быть любым  int, str, float, complex
+    (55.75, 37.5): 'Москва'
+}
+
+print(d['table'])
+print(d['well'][0])
+
+print(d[(55.75, 37.5)])
+
+# добавление ключа и значения
+d['plum'] = 'слива'
+print(d['plum'])
+
+# удаление ключа
+del d['plum']
+
+# добавление ключа и значения - списка, чтобы можно было добавить еще
+d['plum'] = ['слива']
+print(d['plum'])
+
+d['plum'].append('красная слива')
+print(d['plum'])
+
+# добавление значения в существующий ключ (проверка наличия ключа)
+if type(d['well']) == list:
+    d['well'].append('буровая скважина')
+print(d)
+
+for key in d:
+    print(key, '-->', d[key])
+
+# dir({})
+# 'clear', 'copy', 'fromkeys', 'get', 'items', 'keys', 'pop', 'popitem', 'setdefault', 'update', 'values'
+
+
+deleted_item =d.pop('apple')
+print('Удалили элеменет словаря ', deleted_item)
+
+
+for key in d.keys(): #d.keys()
+    print(key, '-->', d[key])
+
+
+# перебор всех значений
+for value in d.items():
+    print(value)
+
+print(d.keys())  # список ключей
+print(d.values()) #список значений
+
+# перебор всех пар "ключ, значение"
+# for k, v in d.items():
+#    print(k, v)
+
+print('Есть ли стул в словаре')
+if 'стул' in d.values():
+    print('Да есть')
+else:
+    print('Стула нет!')
+
+print('Доступ к несуществующему ключу без "исключений"')
+pear = d.get('pear', 'Груши нет')
+# if pear - дальнейшая обработка события
+print('Где груша: ', pear)
+
+"""
+
+# Словари
+# Частотный анализ
+
+text ="""Две экзопланеты превзошли Землю по жизнепригодности.
+Астрономы сравнили далекие миры с нашей планетой по разным критериям и сделали неожиданное открытие.
+Две экзопланеты превосходят Землю по степени пригодности для жизни, рассказали астрономы в своей недавней статье.
+Они разработали специальный метод оценки миров и применили его для сравнения множества известных примеров. Напомним,
+открыто уже без малого 6 тысяч миров в других звездных системах.
+"""
+res ={}
+commas = (',', '!', '.', '?', '-', ':' )
+
+for x in commas:
+   text = text.replace(x, '')
+
+lst = text.lower().split()
+
+for item in lst:
+    if item in res:
+        res[item] +=1
+    else:
+        res[item] = 1
+print(res)
+print('Частотный анализ слов текста')
+for k, v in res.items():
+    print(k, v)
+
+
 
 
