@@ -1298,7 +1298,7 @@ print('Частотный анализ слов текста')
 for k, v in res.items():
     print(k, v)
 
-"""
+
 
 # Функции
 # DRY (Do not Repeat Yourself)
@@ -1353,3 +1353,58 @@ def num_to_word(num):
     e = num % 10
     le = ['один', 'два']
     ld = ['десять' 'двадцать']
+
+"""
+
+def print_array(array: list) -> None:
+    for item in array:
+        print(item)
+
+
+words =['Привет', 'Мир']
+print_array(words)
+print_array(['a', 'b', 'c',])
+print_array(words)
+
+
+PI = 3,1415
+
+def circle_length(radius):
+    perimetr = 2* PI * radius
+    print(f'Длина оккружности с радиусом {radius} = {perimetr:.2f} ')
+
+square = 'Дворцовая площадь' # shadows name 'square' from outer scope
+
+def square_area(length, width):
+    area = length * width
+    print (f'площадь кв. ярдов : "{square}" = {area}')
+
+#        """
+#        Функция вычисления площади
+#        :param length:
+#        :param width:
+#        :return: None
+#        """
+
+def greet(name):
+    print('Привет', name)
+    name = 'Друг'
+    print('Здравствуй,', name)
+
+
+greet('Петр')
+print('Давай встретимся, где', square)
+
+PI = 3.14
+circle_length(5)
+
+square_area(2, 3)
+
+
+def main():
+    area = 'Пушкинская'
+    words = ['Привет']
+
+# функция main вызывает все переменные,
+
+
