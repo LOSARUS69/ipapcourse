@@ -91,6 +91,7 @@ else:
 
 """
 from collections import defaultdict
+from ctypes import HRESULT
 from itertools import count
 from re import match
 from selectors import SelectSelector
@@ -1354,11 +1355,13 @@ def num_to_word(num):
     le = ['один', 'два']
     ld = ['десять' 'двадцать']
 
-"""
+
 
 def print_array(array: list) -> None:
     for item in array:
         print(item)
+
+
 
 
 words =['Привет', 'Мир']
@@ -1379,12 +1382,12 @@ def square_area(length, width):
     area = length * width
     print (f'площадь кв. ярдов : "{square}" = {area}')
 
-#        """
+#        ""
 #        Функция вычисления площади
 #        :param length:
 #        :param width:
 #        :return: None
-#        """
+#        ""
 
 def greet(name):
     print('Привет', name)
@@ -1403,8 +1406,203 @@ square_area(2, 3)
 
 def main():
     area = 'Пушкинская'
-    words = ['Привет']
+    words = ['Привет', 'Мир']
 
-# функция main вызывает все переменные,
+    greet('Петр')
 
+
+
+# функция main назаначает все переменные,(как можно меньше глобальных переменных)
+
+
+
+
+# return vs yield
+
+def generate_list():
+    for i in range(5):
+        yield i # генератор
+
+array = tuple(generate_list())
+
+# Оператор is: a is b --> true, когда a и b - один и тот же объект
+
+a = [0]
+print(id(a))
+
+a[0] += 1
+print(id(a))
+
+d = {'a': 1}
+print(id(a))
+
+d['a'] += 1
+print(id(a))
+
+my_refregirator = ['колбаса', 'сыр', 'масло',]
+her_refregirator = ['колбаса', 'сыр', 'масло',]
+
+print(my_refregirator == her_refregirator)
+print(id(my_refregirator) == id(her_refregirator))
+
+my_refregirator += ['мясо']
+her_refregirator = my_refregirator
+
+print(my_refregirator == her_refregirator)
+print(id(my_refregirator) == id(her_refregirator))
+
+print(my_refregirator)
+print(her_refregirator)
+
+print(my_refregirator is her_refregirator)
+
+# НО! если присвоим так
+
+her_refregirator = my_refregirator.copy() # можно записать вместо ".copy()" только ":"
+
+print(my_refregirator == her_refregirator)
+print(id(my_refregirator) == id(her_refregirator))
+
+print(my_refregirator)
+print(her_refregirator)
+
+print(my_refregirator is her_refregirator)
+
+
+
+temp = None
+print(type(temp))
+print(temp is None)
+
+
+def print_array(array: list, start=None):
+
+    if start is None:
+        for i in array:
+            print(i)
+    else:
+        for i in range(start, len(array)):
+            print(array[i])
+
+a = [1, 2, 3]
+print_array(a, 4)
+
+
+
+
+a = [1, 2, 3]
+print_array(a, )
+
+
+
+def coordinates():
+    return 5.4, 3.2, 2.8, 4.1, 7.3
+#x, y, *rest = coordinates() #распаковка, звездочка может быть только одна но в любой позиции
+x, *rest, y = coordinates()
+
+print(coordinates())
+
+coordinates()
+print(f'x = {x}, y = {y}, rest = {rest}')
+# вернет кортеж с множественными данными
+
+
+*names, surname = 'Остап Сулейман Бендер'.split()
+print(  names, surname)
+
+
+# Функция с переменным числом аргументов
+
+# def multy(* args):
+#     if len(args) ==0:
+#         return 0
+#     result = 1
+#     for arg in args:
+#         result *= arg
+#         return result
+#     print(len(args)) # подсчет числа аргументов
+#     print(args) # поскольку кортеж, можем обращаться по индексу, или перебором в цикле
+#
+#
+# print(multy(1,2))
+
+def multy1 (first, *args):
+    if not args:
+        return first
+    result = first
+    for arg in args:
+        result *=arg
+        return result
+
+    print(multy1(2))
+
+
+
+def calc(*args,operator='+'):
+    match operator:
+        case '+':
+            result = 0
+            for i in args:
+                result += 1
+        case '*':
+            result = 1
+            for i in args:
+                result *= 1
+        case _:              # не совпал ни с чем, по default'у
+            return -float('inf')
+    return result
+
+
+print (calc(1,2,3,operator='*'))
+
+"""
+
+def print_any(*args, **kwargs):
+ # kwargas - keyword args, в этом смысле словарь
+    for i in args:
+        print(i)
+    for k, v in kwargs.items():
+        print(k, '=', v)
+
+
+print_any('Дмитрий', 'Колесов', city='Москва', age=27)
+
+
+def profile(name, surname, city, *children, **additional):
+    print(f'Имя: {name}')
+    print(f'Фамилия: {surname}')
+    if len(children) >0:
+        print('Дети:',','.join(children))
+    if 'hobbie' in additional:
+        print('Хобби :', additional ['hobbie'])   # end=': ')
+    # print(additional)
+
+
+profile('Дмитрий', 'Колесов', 'Волгоград', 'Мария', hobbie='филателия')
+
+
+# Функция как объект
+# передается в другие функции, функции высшего порядка
+
+# функция критериев отбора элементов
+
+def is_longer_six(word):
+    return len(word) > 6
+
+words = ['В', 'этом', 'списке', 'останутся', 'слова', 'длина', 'которых', 'больше', 'шести', ]
+result = list(filter(is_longer_six, words))
+print (result)
+for word in filter(is_longer_six, words):
+    print (word)
+
+def is_begin_a(fruit):
+    return fruit[0] == 'а'
+
+fruits = ['арбуз', 'малина', 'ананас', 'ежевика', 'слива',]
+result = list(filter(is_begin_a, fruits))
+print (result)
+
+
+
+#печатник = print
 
