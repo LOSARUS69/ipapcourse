@@ -1637,6 +1637,8 @@ print(res)
 res = [y ** 2 for y in range(3, 16)]
 print(res)
 
+
+
 words = ['В', 'этом', 'списке', 'останутся', 'слова', 'длина', 'которых', 'больше', 'шести', ]
 result = list(filter(is_longer_six, words))
 print (result)
@@ -1645,7 +1647,7 @@ for word in filter(is_longer_six, words):
 
 # long_works = [ for word) in words ... ]
 # print(word)
-"""
+
 
 # Анонимные функции (однострочники, безымянные)
 # lambda функции
@@ -1673,6 +1675,77 @@ def get_words(text: str) -> list:
     return remove_punctuation(text).split()
 
 def long_words(text, length=4) -> list:
+
+
+
+# Ключ сортировки
+
+print(sorted(fruits, key=lamba s: (s[1], s[-1]))
+
+# без ключа - лексиграфическая сортировка
+
+
+
+# потоковый ввод sys.stdin
+import sys
+
+for line in sys.stdin:
+    print(line)
+
+
+#  Задача вывести из stdin строку, которая короче
+
+data = [d.strip('\n') for d in sys.stdin.readlines()]
+temp = []
+for i, s in enumerate(data):
+    temp =[]
+    for i, s in enumerate(data):
+        temp.append((i, len(s.split())))
+    temp.sort(key=lambda x:x[1])
+    index = temp [0][0]
+    res = sorted(data[index].split())
+    print(*res, sep='-')
+
+
+
+def factorial(count):  #S! =1 * 2 * 3 * 4 * 5 = 120
+    result = 1
+    for i in range(2, count + 1):
+        result *= 1
+    return result
+
+for x in range(10):
+    print(x, factorial(x))
+
+"""
+
+### черепашья графика (Питон для детей и родителей - книга)
+
+import turtle as t  #(так короче)
+
+N = 12
+
+#turtle.speed(0)
+# turtle.penup()
+# turtle.goto(-100, -200)
+# turtle.pendown()
+
+for _ in range(N):
+    for _ in range(4):
+        t.forward(100)
+        t.right(90)
+    t.right(90)
+    t.righ(360 // 5)
+
+#    turtle.forward(100)
+#    turtle.right(360//N)
+
+turtle.mainloop()
+
+
+
+
+
 
 
 
