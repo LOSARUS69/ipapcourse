@@ -1555,7 +1555,7 @@ def calc(*args,operator='+'):
 
 print (calc(1,2,3,operator='*'))
 
-"""
+
 
 def print_any(*args, **kwargs):
  # kwargas - keyword args, в этом смысле словарь
@@ -1603,6 +1603,77 @@ result = list(filter(is_begin_a, fruits))
 print (result)
 
 
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9,] # -> 123456789
+# nums_str = map(str, nums)
+res = ''.join(map(str, nums))
+print(res)
 
-#печатник = print
+
+# критерий - вхождение подстроки
+#  в частности 'ан'
+fruits = ['арбуз', 'малина', 'ананас', 'ежевика', 'слива',]
+
+def string_contains(s):
+    return 'ан' in s
+
+print(string_contains(fruits))
+
+
+
+# Анонимные функции (однострочники, безымянные)
+# lambda функции
+# lambda <аргументы>: <выражения>
+
+is_longer_six = lambda word: len(word) > 6
+
+is_first_letter_a = lambda word: word[0] == 'a'
+
+#  одну строку вывести список квадратов чисел от 3 до 15
+# [9, 16, 25
+
+res = list(map(lambda y: y **2,range(3, 16)))
+print(res)
+
+res = [y ** 2 for y in range(3, 16)]
+print(res)
+
+words = ['В', 'этом', 'списке', 'останутся', 'слова', 'длина', 'которых', 'больше', 'шести', ]
+result = list(filter(is_longer_six, words))
+print (result)
+for word in filter(is_longer_six, words):
+    print (word)
+
+# long_works = [ for word) in words ... ]
+# print(word)
+"""
+
+# Анонимные функции (однострочники, безымянные)
+# lambda функции
+# lambda <аргументы>: <выражения>
+
+ENGLISH_ABC = set([chr(ch) for ch in range(ord('a'), ord('z') + 1)])
+RUSSIAN_ABC = set([chr(ch) for ch in range(ord('а'), ord('я') + 1)] + ['ё'])
+ABC = ENGLISH_ABC ^ RUSSIAN_ABC
+
+# ABC_full =
+
+print(ABC)
+print(ENGLISH_ABC)
+print(RUSSIAN_ABC)
+
+text ='В рамках развития новой цифровой промышленной политики, так называемой четвертой промышленной революции, или «Индустрии 4.0», будут появляться стандарты внедрения умных заводов и цифровых фабрик, развиваться виртуальные модели производств, киберфизические системы и промышленный интернет вещей. О том, как промышленные компании воплощают их в жизнь, «Ведомости&» поговорили с участниками рынка.'
+text = ''.join(filter(lambda x: x in ABC ^ {' '}, text))
+print(text)
+
+
+def remove_punctuation(text):
+    return ''.join(filer(lamba x: x in ABC ^ {' '}, text))
+
+def get_words(text: str) -> list:
+    return remove_punctuation(text).split()
+
+def long_words(text, length=4) -> list:
+
+
+
 
