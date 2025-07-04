@@ -97,6 +97,8 @@ from re import match
 from selectors import SelectSelector
 from tkinter.font import names
 
+from PIL.Image import Image
+
 word1 = 'пришел'
 word2 = 'увидел'
 word3 = 'победил'
@@ -1717,7 +1719,7 @@ def factorial(count):  #S! =1 * 2 * 3 * 4 * 5 = 120
 for x in range(10):
     print(x, factorial(x))
 
-"""
+
 
 ### черепашья графика (Питон для детей и родителей - книга)
 
@@ -1742,6 +1744,138 @@ for _ in range(N):
 
 turtle.mainloop()
 
+
+
+
+import sys
+strings =[d.strip('\a') for d in sys.stdin.readlines()]
+length = len(strings) # сколько строк введено?
+
+rem = length % 3
+
+if rem:
+    strings = strings[:length - rem]
+
+for x in range(0, length - rem, 3):
+    summ = sum(len(a) for a in strings[x:x +3]) #summ, min, max - встроенные функции
+    result = []
+    for s in strings[x:x + 3]:
+        temp = s.lower().split()
+        result += filter(lambda a: len(a) % 2 ==summ % 2, temp)
+    result = sorted(set(map(lambda b: b.capitalize(), result)))[:5]
+    print(result, sep = ', ')
+
+
+# Встроенные библиотеки
+# PyPi - Python Package Index (pypi.org)
+
+import math as m  # математическая библиотека
+# from math import *
+
+from math import pi, sqrt, sin, radians
+
+# print('Число Пи:', math.pi)
+
+print('Число Пи:', pi)
+print('Квадратный корень из 4: ', sqrt(4))
+
+print(dir(m))
+print(help(m.cos))
+print('Синус 30° : ',round(sin(radians(30))),2)
+
+
+
+# генератор случайных чисел
+
+import random as r
+
+num =r.randint(0, 10)
+
+print(dir(r))
+
+#['BPF', 'LOG4', 'NV_MAGICCONST', 'RECIP_BPF', 'Random', 'SG_MAGICCONST', 'SystemRandom', 'TWOPI', '_ONE', '_Sequence', '__all__', '__builtins__', '__cached__',
+# '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', '_accumulate', '_acos', '_bisect', '_ceil', '_cos', '_e', '_exp', '_fabs', '_floor',
+# '_index', '_inst', '_isfinite', '_lgamma', '_log', '_log2', '_os', '_pi', '_random', '_repeat', '_sha512', '_sin', '_sqrt', '_test', '_test_generator',
+# '_urandom', '_warn', 'betavariate', 'binomialvariate', 'choice', 'choices', 'expovariate', 'gammavariate', 'gauss', 'getrandbits', 'getstate', 'lognormvariate',
+# 'normalvariate', 'paretovariate', 'randbytes', 'randint', 'random', 'randrange', 'sample', 'seed', 'setstate', 'shuffle', 'triangular', 'uniform',
+# 'vonmisesvariate', 'weibullvariate']
+
+print(help(r.randrange))
+
+
+
+zara = ['\u2680', '\u2681', '\u2682', '\u2683', '\u2684', '\u2685']
+
+ for _ in range(10):
+     print(r.choice(zara), r.choice(zara))
+     
+"""
+# pip freeze > requirements.txt - создание файла описания зависимостей
+# pip install -r requirements.txt
+
+# Внешние библиотеки
+# графика
+# PIL Python Imagine Library
+
+#RGB
+#thumbnail
+
+from PIL import Image
+
+image = Image.open('images/istockpyto.jpg')
+
+# инверсия
+
+x, y = image.size
+mode = image.mode
+
+pixels = image.load() #загрузить таблицу пикселей
+
+print(f' Ширина: = {x}, Высота: = {y}')
+print(f'Цветовая схема: {mode}')
+
+for i in range(x):
+    for j in range(y):
+        r, g, b = pixels[i, j]
+        pixels[i, j] =g, b, r
+
+image.save('images/mypython.jpg')
+
+# негатив
+
+x, y = image.size
+mode = image.mode
+
+pixels = image.load() #загрузить таблицу пикселей
+
+print(f' Ширина: = {x}, Высота: = {y}')
+print(f'Цветовая схема: {mode}')
+
+for i in range(x):
+    for j in range(y):
+        r, g, b = pixels[i, j]
+        pixels[i, j] =255 - r, 255 - b, 255- g
+
+image.save('images/mypython2.jpg')
+
+
+#grayscale
+
+x, y = image.size
+mode = image.mode
+
+pixels = image.load() #загрузить таблицу пикселей
+
+print(f' Ширина: = {x}, Высота: = {y}')
+print(f'Цветовая схема: {mode}')
+
+for i in range(x):
+    for j in range(y):
+        r, g, b = pixels[i, j]
+        average = (r + g + b) //3
+        pixels[i, j] = average, average, average
+
+image.save('images/mypython3.jpg')
 
 
 
