@@ -92,6 +92,7 @@ else:
 """
 from collections import defaultdict
 from ctypes import HRESULT
+from importlib.metadata import requires
 from itertools import count
 from re import match
 from selectors import SelectSelector
@@ -1809,7 +1810,7 @@ zara = ['\u2680', '\u2681', '\u2682', '\u2683', '\u2684', '\u2685']
  for _ in range(10):
      print(r.choice(zara), r.choice(zara))
      
-"""
+
 # pip freeze > requirements.txt - создание файла описания зависимостей
 # pip install -r requirements.txt
 
@@ -1880,7 +1881,30 @@ image.save('images/mypython3.jpg')
 
 
 
+№ Домашнее задание - забрать модуль с Git!
+
+# https://fontsforyou.com/ru
 
 
+draw = ImageDraw.Draw(image)
+text = 'Солнечный день'
 
 
+"""
+
+#  Документы
+#  работа с docx, xlsx - работа с докуемнтами в Python (python-docx)
+
+# pip freeze > requirements.txt, создание файла зависимостей
+# pip install - r requirements.txt - установка списка библиотек из файла
+
+import docx
+
+doc = Document()
+
+# Добавление заголовка
+add_heading('Отчет за менсяц', 1)
+
+doc.save('docs/report.docx')
+
+print(dir(doc))
