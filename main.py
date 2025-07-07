@@ -1890,7 +1890,7 @@ draw = ImageDraw.Draw(image)
 text = 'Солнечный день'
 
 
-"""
+
 
 #  Документы
 #  работа с docx, xlsx - работа с докуемнтами в Python (python-docx)
@@ -1898,13 +1898,187 @@ text = 'Солнечный день'
 # pip freeze > requirements.txt, создание файла зависимостей
 # pip install - r requirements.txt - установка списка библиотек из файла
 
-import docx
 
+# Mistral code
+
+import os
+
+# Получение текущего рабочего каталога
+current_path = os.getcwd()
+
+# Вывод текущего пути
+print("Текущий путь:", current_path)
+
+# Specify the path of the directory you want to create
+directory_path = (os.getcwd()) + "/doc"
+
+# Use os.makedirs to create the directory
+os.makedirs(directory_path, exist_ok=True)
+
+print(f"Directory '{directory_path}' created successfully.")
+
+from docx import Document
+
+# Create a new Document
 doc = Document()
 
-# Добавление заголовка
-add_heading('Отчет за менсяц', 1)
+# Add a heading
+doc.add_heading('Document Title', 0)
 
-doc.save('docs/report.docx')
+# Add a paragraph
+doc.add_paragraph('A plain paragraph having some text.')
 
-print(dir(doc))
+# Add a table
+table = doc.add_table(rows=2, cols=2)
+table.cell(0, 0).text = 'Cell 1'
+table.cell(0, 1).text = 'Cell 2'
+table.cell(1, 0).text = 'Cell 3'
+table.cell(1, 1).text = 'Cell 4'
+
+# Save the document
+#doc.save(f'{directory_path}/doc/example.docx')
+
+doc.save('doc/example.docx')
+
+# Lesson Code
+# pip install openpyxl - работаем с файлами xls
+
+from openpyxl import Workbook
+from openpyxl import load_workbook
+
+wb = Workbook()
+
+ws = wb.active
+ws.title = 'Типы ячеек в ipynb'
+
+wb.save('doc/report.xlsx')
+
+#from docxtpl import DocxTemplate
+
+# Запись данных в существующий файл
+wb = load_workbook('doc/report.xlsx')
+
+# Активный лист
+ws = wb.active
+
+# Способы записи
+
+ws ['F1'] = 'Привет мир'
+ws.cell(row=1, column=3, value='Hello')
+
+wb.save('doc/newbook.xlsx')
+
+
+# ws = wb.
+
+# Заголовки
+
+ws['A1'] = 'ФИО'
+ws['B1'] = 'Должность'
+ws['C1'] = 'Отдел'
+
+employees = [
+    ['Иванов И. И.', 'Менеджер','Продажи'],
+    ['Петров П.П.', 'Бухгалтер','Финансы'],
+    ['Сидорова С.С', 'Аналитик','IT',],
+]
+
+for row, data in enumerate(employees, start=2),
+    wc.cell(row=row)
+
+
+
+import subprocess
+
+# Запуск системной консоли
+process = subprocess.Popen(['cmd.exe'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+
+# Взаимодействие с консолью
+stdout, stderr = process.communicate(b"dir\n")  # Пример команды для Windows
+encoded_string = (stdout)
+
+# Измените кодировку командной строки:
+#
+# Вы можете попробовать изменить кодировку командной строки на UTF-8, чтобы поддерживать более широкий диапазон символов. Для этого выполните следующие шаги:
+#
+# Откройте командную строку.
+# Введите команду chcp 65001 и нажмите Enter. Это изменит текущую страницу кода на UTF-8.
+
+import sys
+from urllib.parse import unquote
+
+# Декодирование строки
+decoded_string = unquote(encoded_string)
+
+# Вывод декодированной строки в stdout
+print(decoded_string + '\n')
+
+
+
+
+
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+import subprocess
+
+# Запуск системной консоли
+process = subprocess.Popen(['cmd.exe'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+
+# Взаимодействие с консолью
+stdout, stderr = process.communicate(b"start\n")  # запуск консоли для Windows
+encoded_string = (stdout)
+
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+# Файлы
+# набор данных, сохраненный на носителе в виде определенной структуры
+# t - текстовый файл (xt, html, xml)
+# b - бинарный файл (jpg, avi, mp3)
+
+# w  write (запись, создается)
+# a - append - добавление
+# r - read - чтение
+
+fo = open('info.txt', 'wt', encoding='utf-8')
+
+print(fo.mode)
+print(fo.name)
+print (fo.encoding)
+
+count = fo.write('Этот текст будет здесь!')
+
+text = fo.read(3)
+print('Вот что было здесь: ', end=': ')
+print(text)
+
+
+fo = open('info.txt', 'at', encoding='utf-8')
+
+fo.write(' Хороший текст!')
+
+"""
+
+import os
+
+# os.mkdir('lipps')
+
+os.makedirs('lipps', exist_ok=True)
+
+#........
+
+path = os.getcwd() # get current working directory
+print(path)
+
+os.chdir (path + '\images')
+
+ath = os.getcwd() # get current working directory
+print(path)
+
+all_files =  [f for f in os.listdir('.') if f.startswith('py')]
+print(all_files)
+
+
+
+
+
+
