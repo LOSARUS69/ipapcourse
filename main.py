@@ -2056,7 +2056,7 @@ fo = open('info.txt', 'at', encoding='utf-8')
 
 fo.write(' Хороший текст!')
 
-"""
+
 
 import os
 
@@ -2080,5 +2080,121 @@ print(all_files)
 
 
 
+# исключения
+
+try:
+    fo = open ('information.txt')
+    print(fo.read())
+    fo.close()
+except FileNotFoundError:
+    print('Файл не найден и создан с параметрами по умолчанию')
+    with open('information.txt','wt', encoding ='utf-8') as fo:
+        fo.write('По умолчанию')
+
+
+
+print('Остаток от деления:')
+
+try:
+    value = int(input('На что делим число 10:'))
+    res = 10 % value
+    print(f'Остаток от деления 10 на {value} = {res}')
+ #   except ZeroDivisionError
+
+
+#  Практикум (обучаемый словарь)
+
+import pickle
+
+# минимальная версия, если файл dict.dat отсуствует
+
+voc = {
+    'стол' : 'table',
+    'стул' : 'chair'
+}
+
+def print_voc():
+    print('Сейчас словарь содержит: ')
+    for k ,v in voc.items():
+        print(k, '--', v) # длинное тире Alt + 0151
+
+# Загружаем словарь из файла
+
+try:
+    with open('dict.dat', 'rb') as dump_in:
+        voc = pickle.load(dump_in)
+except FileNotFoundError:
+    with open('dict.dat', 'wb') as dump.out:
+        pickle.dump (voc, dump_out)
+    print('Создан минимальный книжный словарь ')
+    print_voc()
+
+while True:
+    tem = input('\nВведите слово для перевода или "#" для завершения: ')
+    word = temp.strip().lower()
+    if word in voc.keys():
+        translate = voc[word]
+        print(f'Слово {word} переводится как {translate}, \n')
+    else:
+        print(f'Слово {word} отсутсвует в словаре. ')
+        newkey = f'А как слово {word} переводится?, \n'
+        newkey = 'Если ниччего не вводится нажмите ENTER, \n'
+        newkey += 'или введите его здесь: '
+        new_word = input(newkey)
+
+        if new_word != '' or len(new_word) > 2:
+            voc[word] = new_word
+            print(f'Слово {word} с переводом {new_word} занесено в словарь ')
+        else:
+            print ('Ничего не занесено или слишком короткое слово')
+            continue
+
+# cохранить словарь
+
+with open('dict.dat', 'wb') as dump_out:
+    pickle.dump(voc, dump_out)
+
+print('До новых встреч!')
+
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+# Линтеры - контролируют следование хорошим практикам
+# "Flake8"
+# pip install flake8
+# аргументы запуска - --max-complexity 10 $FileDir$/$FileName$
+#
+#(flake8-bugbear - для нахождения логических ошибок в коде)
+# pip install flake8-bugbear pep8-naming
+
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+# регулярные выражения (поиск по паттерну)
+# r - строка -raw-string ("сырая" строка)
+
+import re
+
+# pattern ='20'
+# pattern ='\b\w'
+
+pattern =r'\b\w{4}\b'
+
+#test_string ='10 плюс 20, будет 30'
+test_string ='Дома было холодно'
+
+#result = re.search(pattern, test_string)
+result = re.findall(pattern, test_string)
+print(result)
+
+"""
+
+
+pattern = r',<img[^>]+src="([^">])"'
+
+# сначала проверим
+test_string = '<img height="50" widh="150" src="images/bg.jpeg'
+
+html = requests.get('https://yandex.ru').text
+result = re.findall(pattern, html)
+print(result)
 
 
