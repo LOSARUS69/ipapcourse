@@ -1,10 +1,11 @@
 
-"""
+
 # This is a sample Python script.
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
+"""
 
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
@@ -89,7 +90,7 @@ if lenth > 3:
 else:
     print ('Ваше слово ',word, 'меньше 4 символов')
 
-"""
+
 from collections import defaultdict
 from ctypes import HRESULT
 from importlib.metadata import requires
@@ -98,13 +99,14 @@ from re import match
 from selectors import SelectSelector
 from tkinter.font import names
 
+import requests
 from PIL.Image import Image
 
 word1 = 'пришел'
 word2 = 'увидел'
 word3 = 'победил'
 word4 = '27\xb0C' #ASCII 16-ричный код символа
-
+"""
 # Help on built-in function print in module builtins:
 # print(*args, sep=' ', end='\n', file=None, flush=False)
 
@@ -114,14 +116,14 @@ word4 = '27\xb0C' #ASCII 16-ричный код символа
 # \t - табуляция
 # \xFF -  #ASCII 16-ричный код символа
 # \u - вывод символа по 4-знакоместам символам unicode
-
+"""
 print ("Концерт группы \"Кино\"") #экранирование символа ["]
 print ('Путь к файлу C:\\Program Files\\Users') #экранирование символа [\]
 
 print (word1, word2, word3, sep=', ')
        #end=' -> ')
 
-"""
+
 
 # Формат вывода 2
 name = 'Игорь'
@@ -2185,8 +2187,8 @@ test_string ='Дома было холодно'
 result = re.findall(pattern, test_string)
 print(result)
 
-"""
 
+import requests as re
 
 pattern = r',<img[^>]+src="([^">])"'
 
@@ -2196,5 +2198,14 @@ test_string = '<img height="50" widh="150" src="images/bg.jpeg'
 html = requests.get('https://yandex.ru').text
 result = re.findall(pattern, html)
 print(result)
+
+"""
+
+
+
+
+
+
+
 
 
